@@ -29,6 +29,7 @@ $main-color: black; // same here
     }
 
     &:focus ~ .form-input-label { //this means: whenever a user focuses on form-input, we want to apply shrinkLabel to the class .form-input.label
+      //currently, the class .form-input.label has top: 10px; but when the mixin gets involved, that'll change to top: -14px;
       @include shrinkLabel();
     }
   }
