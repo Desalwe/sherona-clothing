@@ -23,9 +23,10 @@ class App extends Component {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth); // this is getting the userAuth object, which is returned back out of createUserProfileDocument
+
         userRef.onSnapshot((snapshot) => {
           this.setState({ currentUser: { id: snapshot.id, ...snapshot.data() } }, () => {
-            console.log("auto updated snapshot data", this.state);
+            console.log("auto updated snapshot data:", this.state);
           });
         });
       } else {
